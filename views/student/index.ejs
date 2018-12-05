@@ -1,0 +1,39 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3>Students</h3>
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Registration Number</th>
+                <th>Student Name</th>
+                <th>Balance Left (in INR)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<students.length; i++){ %>
+            <tr>
+                <td>
+                    <%= students[i].registrationNumber %>
+                </td>
+                <td>
+                    <%= students[i].studentName %>
+                </td>
+                <td>
+                    <%= students[i].balance %>
+                </td>
+                <td>
+                    <form method="POST" action="/student/delete">
+                    <a href="/student/<%= students[i].registrationNumber %>" class="uk-icon-link" uk-icon="info"></a>
+                        <input type="hidden" name="registrationNumber" value="<%= students[i].registrationNumber %>">
+                        <button type="submit" class="uk-icon-link" uk-icon="trash"></button>
+                    </form>
+                </td>
+
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+</div>
+<% include ./../partials/footer %>

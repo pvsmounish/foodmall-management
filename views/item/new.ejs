@@ -1,0 +1,32 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <form class="uk-form-stacked" method="POST" action="/item">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Item Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Veg Biryani" name="itemName">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Item ID</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="10002" name="itemId">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Price (in INR)</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="55" name="price">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-controls">
+                <label><input class="uk-radio" type="radio" name="type" value="1">Veg</label><br>
+                <label><input class="uk-radio" type="radio" name="type" value="0">Non Veg</label>
+            </div>
+        </div>
+        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Add Item</button>
+    </form>
+</div>
+
+<% include ./../partials/footer %>

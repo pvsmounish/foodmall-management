@@ -1,0 +1,30 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <form class="uk-form-stacked" method="POST" action="/feedback">
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Registration Number</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="17BIT0229" name="registrationNumber">
+            </div>
+        </div>
+
+        <div class="uk-form-label">Rating</div>
+        <select class="uk-select" id="rating" name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <div class="uk-margin">
+
+            <div class="uk-form-label">Review</div>
+            <textarea class="uk-textarea" name="review"></textarea>
+        </div>
+
+        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Submit Feedback</button>
+    </form>
+</div>
+
+<% include ./../partials/footer %>

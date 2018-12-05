@@ -1,0 +1,38 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Price (in INR)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<items.length; i++){ %>
+            <tr>
+                <td>
+                    <%= items[i].itemId %>
+                </td>
+                <td>
+                    <%= items[i].itemName %>
+                </td>
+                <td>
+                    <%= items[i].price %>
+                </td>
+                <td>
+                    <form method="POST" action="/item/delete">
+                        <input type="hidden" name="itemId" value="<%= items[i].itemId %>">
+                        <button type="submit" class="uk-icon-link" uk-icon="trash"></button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>

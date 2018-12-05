@@ -1,0 +1,42 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3>Feedbacks</h3>
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Feedback ID</th>
+                <th>Registration Number</th>
+                <th>Review Timestamp</th>
+                <th>Review</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<feedbacks.length; i++){ %>
+            <tr>
+                <td>
+                    <%= feedbacks[i].feedbackId %>
+                </td>
+                <td>
+                    <%= feedbacks[i].registrationNumber %>
+                </td>
+                <td>
+                    <%= feedbacks[i].reviewTime %>
+                </td>
+                <td>
+                    <%= feedbacks[i].review %>
+                </td>
+                <td>
+                    <% for(let j=0; j<feedbacks[i].rating; j++){ %>
+                        <span uk-icon="star"></span>
+                    <% } %>
+                </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>

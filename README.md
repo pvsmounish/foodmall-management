@@ -1,2 +1,32 @@
-# foodmall-management
-VIT Foodmall Management Software DBMS Project
+# Foodmall Management Software
+
+VIT Hostel's Foodmall Management Software makes the Foodmall to run smoothly. The mission of this project is to facilitate easy management and administration of the food mall in VIT with capabilities to do Billing the food, Communication between different employees, Seeing Reports/Statistics, Adding and removing students every month, Total monthly billing etc. using the computerized food mall management software.
+
+Technologies used:
+NodeJS (Express)
+SQLite3
+
+## Installation
+
+First, clone the project.
+
+```bash
+git clone https://github.com/pvsmounish/foodmall-management.git
+```
+Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
+Run the following command in root directory.
+
+```bash
+npm install
+```
+Run the project.
+
+```bash
+npm start
+```
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+## License
+[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

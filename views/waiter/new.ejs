@@ -1,0 +1,51 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <form class="uk-form-stacked" method="POST" action="/waiter">
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Waiter Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="Mounish Sai" name="waiterName">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Waiter ID</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="30001" name="waiterId">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Date Of Birth</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="date" name="dateOfBirth">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Mobile Number</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="9014612004" name="mobileNumber">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-form-label">Gender</div>
+            <div class="uk-form-controls">
+                <label><input class="uk-radio" type="radio" name="gender" value="1">Male</label><br>
+                <label><input class="uk-radio" type="radio" name="gender" value="0">Female</label>
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Salary</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-stacked-text" type="text" placeholder="5500" name="salary">
+            </div>
+        </div>
+        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Add Waiter</button>
+    </form>
+</div>
+
+<% include ./../partials/footer %>

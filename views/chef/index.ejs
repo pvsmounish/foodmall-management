@@ -1,0 +1,55 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3>Chefs</h3>
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Chef ID</th>
+                <th>Chef Name</th>
+                <th>Date Of Birth</th>
+                <th>Mobile Number</th>
+                <th>Gender</th>
+                <th>Salary (in INR)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<chefs.length; i++){ %>
+            <tr>
+                <td>
+                    <%= chefs[i].chefId %>
+                </td>
+                <td>
+                    <%= chefs[i].chefName %>
+                </td>
+                <td>
+                    <%= chefs[i].dateOfBirth %>
+                </td>
+                <td>
+                    <%= chefs[i].mobileNumber %>
+                </td>
+                <td>
+                    <% if(chefs[i].gender == 1){ %>
+                    <p>Male</p>
+                    <% } else {%>
+                    <p>Female</p>
+                    <% } %>
+                </td>
+                <td>
+                    <%= chefs[i].salary %>
+                </td>
+                <td>
+                    <form method="POST" action="/chef/delete">
+                        <input type="hidden" name="chefId" value="<%= chefs[i].chefId %>">
+                        <button type="submit" class="uk-icon-link" uk-icon="trash"></button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>

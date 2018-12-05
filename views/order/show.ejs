@@ -1,0 +1,105 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h2 class="uk-heading-divider">Order Details</h2>
+
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+        <div>
+            Order ID<br />
+            <%= order.orderId %>
+        </div>
+        <div>
+            Registration Number<br />
+            <%= order.registrationNumber %>
+        </div>
+        <div>
+            Student Name <br />
+            <%= order.studentName %>
+        </div>
+    </div>
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+        <div>
+            Order Time<br />
+            <%= order.orderTime %>
+        </div>
+        <div>
+            <% if(order.deliveryTime && order.deliveryTime.length > 0){ %>
+            Delivery Time<br />
+            <%= order.deliveryTime %>
+            <% } else { %>
+                    <form method="POST" action="/order/deliver">
+                        <input type="hidden" name="orderId" value="<%= order.orderId %>">
+                        <button class="uk-button uk-button-default" type="submit">Deliver Now</button>
+                    </form>
+                
+            <% } %>
+
+        </div>
+    </div>
+
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+        <div>
+            Table Number<br />
+            <%= order.tableNumber %>
+        </div>
+        <div>
+            Chef ID<br />
+            <%= order.chefId %>
+        </div>
+        <div>
+            Waiter ID<br />
+            <%= order.waiterId %>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <h2 class="uk-heading-divider">Order Items</h2>
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Item Price</th>
+                <th>Net Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(let i=0; i<order.items.length; i++){ %>
+            <tr>
+                <td>
+                    <%= order.items[i].itemId %>
+                </td>
+                <td>
+                    <%= order.items[i].itemName %>
+                </td>
+                <td>
+                    <%= order.items[i].quantity %>
+                </td>
+                <td>
+                    ₹
+                    <%= order.items[i].price %>
+                </td>
+                <td>
+                    ₹
+                    <%= order.items[i].price*order.items[i].quantity %>
+                </td>
+            </tr>
+            <% } %>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total Bill Amount</td>
+                <td><b>₹
+                        <%=order.totalAmount %></b></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>

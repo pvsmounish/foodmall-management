@@ -1,0 +1,140 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <form class="uk-form-stacked" method="POST" action="/order">
+        
+            <div class="uk-grid-small" uk-grid>
+                <div class="uk-width-1-2@s">
+                    <label class="uk-form-label" for="form-stacked-text">Registration Number</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="17BIT0229" name="registrationNumber">
+                    </div>
+                </div>
+            
+            
+                <div class="uk-width-1-2@s">
+                                    <div class="uk-form-label">Table Number</div>
+                <select class="uk-select" id="tableSelect" name="tableNumber">
+                    <% for(let i=0; i<tables.length; i++){ %>
+                    <option value="<%= tables[i].tableNumber %>">
+                        <%= tables[i].tableNumber %> -
+                        <%= tables[i].isAC == 1?"AC":"Non AC" %></option>
+                    <% } %>
+
+                </select>
+                </div>
+            </div>
+            <br>
+        
+
+        <input type="hidden" name="itemsOrdered" id="itemsOrdered" value="">
+        <input type="hidden" name="totalPriceToServer" id="totalPriceToServer" value="">
+
+
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2@s">
+                <div class="uk-form-label">Item</div>
+                <select class="uk-select" id="itemSelect">
+                    <% for(let i=0; i<items.length; i++){ %>
+                    <option value="<%= i %> <%= items[i].itemId %>">
+                        <%= items[i].itemName %> -
+                        <%= items[i].price %> INR</option>
+                    <% } %>
+
+                </select>
+            </div>
+            <div class="uk-width-1-4@s">
+                <div class="uk-form-label">Quantity</div>
+                <input class="uk-input" type="number" value="1" id="quantity" min="1">
+            </div>
+            <div class="uk-width-1-4@s">
+                <div class="uk-form-label">-</div>
+                <button class="uk-button uk-button-default" onclick="addItem()" type="button">Add Item</button>
+            </div>
+        </div>
+
+        <h2 class="uk-heading-divider">Order Items</h2>
+        <table class="uk-table uk-table-hover uk-table-divider">
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Item Price</th>
+                    <th>Net Amount</th>
+                </tr>
+            </thead>
+            <tbody id="orderItemsTbody">
+
+            </tbody>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total Bill Amount</td>
+                    <td><b>₹
+                            <span id="totalPrice">0</span></b></td>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2@s">
+                <div class="uk-form-label">Assign Chef</div>
+                <select class="uk-select" name="chefId" id="chefSelect">
+                    <% for(let i=0; i<chefs.length; i++){ %>
+                    <option value="<%= chefs[i].chefId %>">
+                        <%= chefs[i].chefId %> -
+                        <%= chefs[i].chefName %>
+                    </option>
+                    <% } %>
+
+                </select>
+            </div>
+
+            <div class="uk-width-1-2@s">
+                <div class="uk-form-label">Assign Waiter</div>
+                <select class="uk-select" name="waiterId" id="waiterSelect">
+                    <% for(let i=0; i<waiters.length; i++){ %>
+                    <option value="<%= waiters[i].waiterId %>">
+                        <%= waiters[i].waiterId %> -
+                        <%= waiters[i].waiterName %>
+                    </option>
+                    <% } %>
+
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">Order</button>
+    </form>
+</div>
+
+
+<script>
+    var items = <%- JSON.stringify(items) %>;
+    var totalPrice = 0;
+
+    function addItem() {
+        var tr = document.createElement('tr');
+        var itemIndex = document.getElementById("itemSelect").value.split(" ")[0];
+        var newItemName = items[itemIndex].itemName;
+        var newItemId = items[itemIndex].itemId;
+        var newItemQuantity = document.getElementById("quantity").value;
+        var newItemPrice = items[itemIndex].price;
+        var newItemTotalPrice = newItemPrice * newItemQuantity;
+
+        var newItem =
+            `<td>${newItemId}</td><td>${newItemName}</td><td>${newItemQuantity}</td><td>₹${newItemPrice}</td><td>₹${newItemTotalPrice}`;
+        tr.innerHTML = newItem.trim();
+        document.getElementById("orderItemsTbody").appendChild(tr);
+        totalPrice += newItemTotalPrice;
+        document.getElementById("totalPrice").innerHTML = totalPrice;
+        document.getElementById("totalPriceToServer").value = totalPrice;
+        document.getElementById("itemsOrdered").value += newItemId + '-' + newItemQuantity + ',';
+        
+    }
+</script>
+
+<% include ./../partials/footer %>

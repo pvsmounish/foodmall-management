@@ -1,0 +1,49 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3>Orders</h3>
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Registration Number</th>
+                <th>Order Time</th>
+                <th>Delivery Time</th>
+                <th>Table Number</th>
+                <th>Total Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(let i=0; i<orders.length; i++){ %>
+            <tr>
+                <td>
+                    <%= orders[i].orderId %>
+                </td>
+                <td>
+                    <%= orders[i].registrationNumber %>
+                </td>
+                <td>
+                    <%= orders[i].orderTime %>
+                </td>
+                <td>
+                    <%= orders[i].deliveryTime %>
+                </td>
+                <td>
+                    <%= orders[i].tableNumber %>
+                </td>
+                <td>
+                    <%= orders[i].totalAmount %>
+                </td>
+                <td>
+                    <a href="/order/<%= orders[i].orderId %>" class="uk-icon-link" uk-icon="info"></a>
+                </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>

@@ -1,0 +1,65 @@
+<% include ./../partials/header %>
+<div class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+    <h3>Add Table</h3>
+    <form class="uk-grid-small" method="POST" uk-grid>
+
+        <div class="uk-width-1-4@s">
+            <input class="uk-input" type="text" placeholder="Table Number" name="tableNumber">
+        </div>
+        <div class="uk-width-1-4@s">
+            <select class="uk-select" id="form-stacked-select" name="isAC">
+                <option value="1">AC</option>
+                <option value="0">Non - AC</option>
+            </select>
+        </div>
+        <div class="uk-width-1-4@s">
+            <input class="uk-input" type="text" placeholder="Capacity" name="seatCapacity">
+        </div>
+        <div class="uk-width-1-4@s">
+            <button class="uk-button uk-button-primary" type="submit">Add</button>
+        </div>
+
+    </form>
+
+    <table class="uk-table uk-table-hover uk-table-divider">
+        <thead>
+            <tr>
+                <th>Table Number</th>
+                <th>is AC</th>
+                <th>Capacity</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(let i=0; i<tables.length; i++){ %>
+            <tr>
+                <td>
+                    <%= tables[i].tableNumber %>
+                </td>
+                <td>
+                    <% if(tables[i].isAC == 1){ %>
+                    <span uk-icon="check"></span>
+                    <% } else{ %>
+                    <span uk-icon="close"></span>
+                    <% } %>
+
+                </td>
+                <td>
+                    <%= tables[i].seatCapacity %>
+                </td>
+                <td>
+                    <form method="POST" action="/table/delete">
+                        <input type="hidden" name="tableNumber" value="<%= tables[i].tableNumber %>">
+                        <button type="submit" class="uk-icon-link" uk-icon="trash"></button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+</div>
+
+<% include ./../partials/footer %>
