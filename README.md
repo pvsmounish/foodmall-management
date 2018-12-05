@@ -1,10 +1,10 @@
 # Foodmall Management Software
 
-VIT Hostel's Foodmall Management Software makes the Foodmall to run smoothly. The mission of this project is to facilitate easy management and administration of the food mall in VIT with capabilities to do Billing the food, Communication between different employees, Seeing Reports/Statistics, Adding and removing students every month, Total monthly billing etc. using the computerized food mall management software.
+VIT Hostel's **Foodmall Management Software** makes the Foodmall to run smoothly. The mission of this project is to facilitate easy management and administration of the foodmall in VIT with capabilities to do Billing the food, Communication between different employees, Seeing Reports/Statistics, Adding and removing students every month, Total monthly billing etc. using the computerized food mall management software.
 
 Technologies used:
-NodeJS (Express)
-SQLite3
+- NodeJS (Express) 
+- SQLite3
 
 ## Installation
 
@@ -24,6 +24,33 @@ Run the project.
 ```bash
 npm start
 ```
+
+## ER Diagram
+
+![ER Diagram](project-files/er-diagram.jpeg)
+
+## Relational Schema
+
+![Relational Schema](project-files/relational-diagram.JPG)
+
+## Screenshots
+
+Adding New Order.  
+![New Order](project-files/screenshots/new-order.JPG)
+
+Show all Orders.  
+![Orders](project-files/screenshots/orders.JPG)
+
+Add New Student.  
+![new-student](project-files/screenshots/new-student.JPG)
+
+Add/Show Tables.  
+![Tables](project-files/screenshots/tables.JPG)
+
+Show Feedbacks.  
+![Feedbacks](project-files/screenshots/feedbacks.JPG)
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
