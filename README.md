@@ -13,7 +13,7 @@ First, clone the project.
 ```bash
 git clone https://github.com/pvsmounish/foodmall-management.git
 ```
-Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
+Use the package manager npm to install dependencies.
 Run the following command in root directory.
 
 ```bash
