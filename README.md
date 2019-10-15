@@ -1,6 +1,6 @@
 # Foodmall Management Software
 
-VIT Hostel's **Foodmall Management Software** makes the Foodmall to run smoothly. The mission of this project is to facilitate easy management and administration of the foodmall in VIT with capabilities to do Billing the food, Communication between different employees, Seeing Reports/Statistics, Adding and removing students every month, Total monthly billing etc. using the computerized food mall management software.
+VIT Hostel's **Foodmall Management Software** makes the Foodmall to run smoothly. The mission of this project is to facilitate easy management and administration of the foodmall in VIT with capabilities to do Billing of the orders, Communication among the employees, Observing and Analysing reports/statistics, adding and removing students for each month, Total monthly billing etc. using the computerized food mall management software.
 
 Technologies used:
 - NodeJS (Express) 
