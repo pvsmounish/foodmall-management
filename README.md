@@ -35,13 +35,13 @@ npm start
 
 ## Screenshots
 
-Adding New Order.  
+Adding a New Order.  
 ![New Order](project-files/screenshots/new-order.JPG)
 
 Show all Orders.  
 ![Orders](project-files/screenshots/orders.JPG)
 
-Add New Student.  
+Add a New Student.  
 ![new-student](project-files/screenshots/new-student.JPG)
 
 Add/Show Tables.  
